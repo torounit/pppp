@@ -23,12 +23,18 @@ Donation: Please send Amazon Gift to donate[at]torounit.com.
 
 == Installation ==
 
-*. Download the pppp.zip file to your computer.
-*. Unzip the file.
-*. Upload the `custom-post-type-permalinks` directory to your `/wp-content/plugins/` directory.
-*. Activate the plugin through the 'Plugins' menu in WordPress.
+* Download the pppp.zip file to your computer.
+* Unzip the file.
+* Upload the `custom-post-type-permalinks` directory to your `/wp-content/plugins/` directory.
+* Activate the plugin through the 'Plugins' menu in WordPress.
 
 That's it. You can access the permalinks setting by going to *Settings -> Reading*.
+
+
+== Screenshots ==
+
+* screenshot-1.png
+
 
 
 == Changelog ==
