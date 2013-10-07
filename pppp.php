@@ -1,8 +1,8 @@
 <?php
 /*
-Plugin Name: Powerful Posts per page
-Plugin URI:
-Description: Posts per page for Custom Post Type and Taxonomy
+Plugin Name: Powerful Posts Per Page
+Plugin URI: https://github.com/torounit/pppp
+Description: Posts per page for custom post types and taxonomies
 Version: 0.6
 Author: Toro_Unit
 Author URI: http://www.torounit.com
