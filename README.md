@@ -8,6 +8,9 @@
 ##インストール
 ` wp-content/plugin` に展開してください。
 
+
+![Screenshot](Screenshot-1.png)
+
 ##License
 
 GPL v2 or Later.
