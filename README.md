@@ -9,7 +9,7 @@
 ` wp-content/plugin` に展開してください。
 
 
-![Screenshot](Screenshot-1.png)
+![Screenshot](https://raw.github.com/torounit/pppp/master/screenshot-1.png)
 
 ##License
 
