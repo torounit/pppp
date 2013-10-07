@@ -1,0 +1,35 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Powerful Post Per Page\n"
+"POT-Creation-Date: 2013-10-07 23:43+0900\n"
+"PO-Revision-Date: 2013-10-07 23:43+0900\n"
+"Last-Translator: \n"
+"Language-Team: Toro_Unit <mail@torounit.com>\n"
+"Language: japanese\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: _;__;_e\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: pppp.php:94
+msgid "Powerful Posts Per Page"
+msgstr "Powerful Posts Per Page"
+
+#: pppp.php:99
+msgid "Set posts per page for each post type/taxonomy archives."
+msgstr ""
+"各投稿タイプとタクソノミーのアーカイブページの、1ページに表示する最大投稿数を"
+"設定します。"
+
+#: pppp.php:113
+#, php-format
+msgid "%s archive show at most"
+msgstr "%s アーカイブの1ページに表示する最大投稿数"
+
+#: pppp.php:121
+msgid "posts"
+msgstr ""
