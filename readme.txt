@@ -1,9 +1,9 @@
 === Powerful Posts Per Page ===
 Contributors: Toro_Unit
 Tags: post type,taxonomy,cms,posts per page
-Requires at least: 3.3
+Requires at least: 3.5
 Tested up to: 3.6
-Stable tag: 0.6
+Stable tag: 0.7
 
 Posts per page for custom post types and taxonomies.
 
@@ -38,6 +38,9 @@ That's it. You can access the permalinks setting by going to *Settings -> Readin
 
 
 == Changelog ==
+
+= 0.7 =
+* Divid into small class a large class.
 
 = 0.6 =
 * First release.
