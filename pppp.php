@@ -11,6 +11,7 @@ Version: 0.7
 Author: Toro_Unit
 Author URI: http://www.torounit.com
 License: GPL2 or Later
+Domain Path: /language/
 */
 
 
@@ -46,7 +47,7 @@ Class PPPP {
 
 
 	public function load_textdomain() {
-		load_plugin_textdomain('pppp',false, dirname(plugin_basename(__FILE__))."/language" );
+		load_plugin_textdomain( 'pppp', false, dirname(plugin_basename(__FILE__))."/language" );
 	}
 
 	public static function uninstall_hook() {
@@ -194,7 +195,7 @@ Class PPPP_Admin {
 			$value = get_option( "posts_per_page" );
 		}
 		?>
-		<input name="<?php echo $field;?>" type="number" step="1" min="-1" id="<?php echo $field;?>" value="<?php echo esc_attr( $value ); ?>" class="small-text" /> <?php _e( 'posts' ); ?>
+		<input name="<?php echo esc_attr($field);?>" type="number" step="1" min="-1" id="<?php echo esc_attr($field);?>" value="<?php echo esc_attr($value); ?>" class="small-text" /> <?php _e( 'posts' ); ?>
 		<?php
 	}
 }
