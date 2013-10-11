@@ -100,14 +100,25 @@ Class PPPP_Core {
  */
 
 Class PPPP_Util {
+
+	private static $post_types = null;
+	private static $taxonomies = null;
+
 	public static function get_post_types() {
-		return get_post_types( array('_builtin'=>false, 'publicly_queryable'=>true, 'show_ui' => true, "has_archive" => true), "objects");
+		if( !self::$post_types ) {
+			self::$post_types =  get_post_types( array('_builtin'=>false, 'publicly_queryable'=>true, 'show_ui' => true, "has_archive" => true), "objects");
+		}
+		return self::$post_types;
 	}
 
 	public static function get_taxonomies() {
-		return get_taxonomies( array( "public" => true ), "objects");
+		if( !self::$taxonomies ) {
+			self::$taxonomies = get_taxonomies( array( "public" => true ), "objects");
+		}
+		return self::$taxonomies;
 	}
 }
+
 
 
 /**
