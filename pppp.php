@@ -101,6 +101,9 @@ Class PPPP_Core {
 
 Class PPPP_Util {
 
+	private function __construct() {
+	}
+
 	private static $post_types = null;
 	private static $taxonomies = null;
 
