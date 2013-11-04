@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: Powerful Post Per Page\n"
-"POT-Creation-Date: 2013-10-07 23:43+0900\n"
-"PO-Revision-Date: 2013-10-07 23:43+0900\n"
+"POT-Creation-Date: 2013-11-04 16:33+0900\n"
+"PO-Revision-Date: 2013-11-04 16:35+0900\n"
 "Last-Translator: \n"
 "Language-Team: Toro_Unit <mail@torounit.com>\n"
 "Language: japanese\n"
@@ -15,21 +15,29 @@ msgstr ""
 "X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: pppp.php:94
+#: pppp.php:225 pppp.php:282
 msgid "Powerful Posts Per Page"
 msgstr "Powerful Posts Per Page"
 
-#: pppp.php:99
+#: pppp.php:230
 msgid "Set posts per page for each post type/taxonomy archives."
 msgstr ""
-"各投稿タイプとタクソノミーのアーカイブページの、1ページに表示する最大投稿数を"
-"設定します。"
+"投稿タイプ・タクソノミーアーカイブの、1ページに表示する最大投稿数を設定しま"
+"す。"
 
-#: pppp.php:113
+#: pppp.php:244
 #, php-format
 msgid "%s archive show at most"
-msgstr "%s アーカイブの1ページに表示する最大投稿数"
+msgstr "%sアーカイブの1ページに表示する最大投稿数"
 
-#: pppp.php:121
+#: pppp.php:255
 msgid "posts"
 msgstr ""
+
+#: pppp.php:282
+msgid ""
+"<p>From <a href='options-reading.php'>Reading</a>, set posts per page for "
+"each post type/taxonomy archives.</p>"
+msgstr ""
+"<p><a href='options-reading.php'>表示設定</a>から、投稿タイプ・タクソノミー"
+"アーカイブの、1ページに表示する最大投稿数を設定します。</p>"
