@@ -100,7 +100,7 @@ Class PPPP_Util {
  *
  */
 
-Class PPPP_Init {
+Class PPPP_Init implements PPPP_Module {
 
 	public function add_hook() {
 		add_action( 'init', array( $this,'load_textdomain') );
@@ -128,7 +128,7 @@ Class PPPP_Init {
  *
  */
 
-Class PPPP_Core {
+Class PPPP_Core implements PPPP_Module {
 
 	public function add_hook() {
 		add_action( "pre_get_posts", array($this, "pre_get_posts"));
@@ -165,7 +165,7 @@ Class PPPP_Core {
  *
  */
 
-Class PPPP_Option {
+Class PPPP_Option implements PPPP_Module {
 
 	public function add_hook() {
 		add_action( "admin_init", array($this,"save_option"), 10);
@@ -212,7 +212,7 @@ Class PPPP_Option {
  *
  */
 
-Class PPPP_Admin {
+Class PPPP_Admin implements PPPP_Module {
 
 	public function add_hook() {
 		add_action( "admin_init", array($this, "add_settings_section"), 11 );
