@@ -27,65 +27,31 @@ Domain Path: /language/
 
 Class PPPP {
 
+	private $init, $option, $core, $admin;
+
 	public function __construct () {
 
+		$this->init = new PPPP_Init();
 		$this->option = new PPPP_Option();
 		$this->core   = new PPPP_Core();
 		$this->admin  = new PPPP_Admin();
-		$this->add_hooks();
-	}
 
-	public function add_hooks() {
-		add_action( 'init', array( $this,'load_textdomain') );
-		add_action( "pre_get_posts", array($this->core,"pre_get_posts"));
-		add_action( "admin_init", array($this->option,"save_option"), 10);
-		add_action( "admin_init", array($this->admin,"add_settings_section"), 11 );
-		add_action( "admin_init", array($this->admin,"add_settings_fields"), 12 );
-
-		register_uninstall_hook( __FILE__, array( __CLASS__, 'uninstall_hook') );
+		$this->add_hook();
 	}
 
 
-	public function load_textdomain() {
-		load_plugin_textdomain( 'pppp', false, dirname(plugin_basename(__FILE__))."/language" );
+	public function add_hook() {
+		$this->init->add_hook();
+		$this->core->add_hook();
+		$this->option->add_hook();
+		$this->admin->add_hook();
 	}
 
-	public static function uninstall_hook() {
-		PPPP_Option::delete_all_options();
-	}
 }
 
+Interface PPPP_Module {
 
-
-/**
- *
- * Core Action class.
- *
- * @package PPPP
- * @since 0.7
- *
- */
-
-Class PPPP_Core {
-
-	public function pre_get_posts( $query ) {
-		if($query->is_main_query() and !is_admin()) {
-			$posts_per_page = get_option( "posts_per_page" );
-			foreach (PPPP_Util::get_post_types() as $post_type) {
-				if($query->is_post_type_archive( $post_type->name )) {
-					$query->set("posts_per_page", get_option( "posts_per_page_of_cpt_".$post_type->name, $posts_per_page));
-					return;
-				}
-			}
-
-			foreach (PPPP_Util::get_taxonomies() as $taxonomy) {
-				if($query->is_tax( $taxonomy->name )) {
-					$query->set("posts_per_page", get_option( "posts_per_page_of_tax_".$taxonomy->name, $posts_per_page));
-					return;
-				}
-			}
-		}
-	}
+	public function add_hook();
 }
 
 
@@ -124,6 +90,72 @@ Class PPPP_Util {
 
 
 
+
+/**
+ *
+ * Actions in Loading Plugin class.
+ *
+ * @package PPPP
+ * @since 0.7.2
+ *
+ */
+
+Class PPPP_Init {
+
+	public function add_hook() {
+		add_action( 'init', array( $this,'load_textdomain') );
+		register_uninstall_hook( __FILE__, array( __CLASS__, 'uninstall_hook') );
+	}
+
+	public function load_textdomain() {
+		load_plugin_textdomain( 'pppp', false, dirname(plugin_basename(__FILE__))."/language" );
+	}
+
+	public static function uninstall_hook() {
+		PPPP_Option::delete_all_options();
+	}
+
+}
+
+
+
+/**
+ *
+ * Core Action class.
+ *
+ * @package PPPP
+ * @since 0.7
+ *
+ */
+
+Class PPPP_Core {
+
+	public function add_hook() {
+		add_action( "pre_get_posts", array($this, "pre_get_posts"));
+	}
+
+	public function pre_get_posts( $query ) {
+		if($query->is_main_query() and !is_admin()) {
+			$posts_per_page = get_option( "posts_per_page" );
+			foreach (PPPP_Util::get_post_types() as $post_type) {
+				if($query->is_post_type_archive( $post_type->name )) {
+					$query->set("posts_per_page", get_option( "posts_per_page_of_cpt_".$post_type->name, $posts_per_page));
+					return;
+				}
+			}
+
+			foreach (PPPP_Util::get_taxonomies() as $taxonomy) {
+				if($query->is_tax( $taxonomy->name )) {
+					$query->set("posts_per_page", get_option( "posts_per_page_of_tax_".$taxonomy->name, $posts_per_page));
+					return;
+				}
+			}
+		}
+	}
+}
+
+
+
 /**
  *
  * Option API class.
@@ -134,6 +166,10 @@ Class PPPP_Util {
  */
 
 Class PPPP_Option {
+
+	public function add_hook() {
+		add_action( "admin_init", array($this,"save_option"), 10);
+	}
 
 	public function save_option() {
 		if(isset($_POST['submit']) && isset($_POST['_wp_http_referer']) && strpos($_POST['_wp_http_referer'],'options-reading.php') !== FALSE ) {
@@ -177,6 +213,11 @@ Class PPPP_Option {
  */
 
 Class PPPP_Admin {
+
+	public function add_hook() {
+		add_action( "admin_init", array($this, "add_settings_section"), 11 );
+		add_action( "admin_init", array($this ,"add_settings_fields"), 12 );
+	}
 
 	public function add_settings_section() {
 		add_settings_section('pppp', __("Powerful Posts Per Page",'pppp'), array( $this,'section_content'), 'reading');
