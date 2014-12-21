@@ -9,7 +9,7 @@
  *
  */
 
-Class PPPP_Init extends PPPP_Module {
+Class PPPP_Module_Init extends PPPP_Module {
 
 	public function add_hook() {
 		add_action( 'init', array( $this,'load_textdomain') );

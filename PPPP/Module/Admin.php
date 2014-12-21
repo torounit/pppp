@@ -8,7 +8,7 @@
  *
  */
 
-Class PPPP_Admin extends PPPP_Module {
+Class PPPP_Module_Admin extends PPPP_Module {
 
 	public function add_hook() {
 		add_action( "admin_init", array($this, "add_settings_section"), 11 );

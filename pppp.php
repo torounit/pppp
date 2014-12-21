@@ -42,10 +42,10 @@ Class PPPP {
 
 	public function __construct () {
 
-		$this->init = new PPPP_Init();
-		$this->option = new PPPP_Option();
-		$this->core   = new PPPP_Core();
-		$this->admin  = new PPPP_Admin();
+		$this->init = new PPPP_Module_Init();
+		$this->option = new PPPP_Module_Option();
+		$this->core   = new PPPP_Module_Core();
+		$this->admin  = new PPPP_Module_Admin();
 
 		do_action("PPPP_init");
 	}

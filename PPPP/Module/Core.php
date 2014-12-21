@@ -9,7 +9,7 @@
  *
  */
 
-Class PPPP_Core extends PPPP_Module {
+Class PPPP_Module_Core extends PPPP_Module {
 
 	public function add_hook() {
 		add_action( "pre_get_posts", array($this, "pre_get_posts"));

@@ -11,7 +11,7 @@
 
 
 
-Class PPPP_Option extends PPPP_Module {
+Class PPPP_Module_Option extends PPPP_Module {
 
 	public function add_hook() {
 		add_action( "admin_init", array($this,"save_option"), 10);
@@ -58,7 +58,7 @@ Class PPPP_Option extends PPPP_Module {
 	}
 
 	public static function uninstall_hook() {
-		PPPP_Option::delete_all_options();
+		self::delete_all_options();
 	}
 
 }
