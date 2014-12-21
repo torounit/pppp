@@ -9,10 +9,14 @@
  *
  */
 
+
+
 Class PPPP_Option extends PPPP_Module {
 
 	public function add_hook() {
 		add_action( "admin_init", array($this,"save_option"), 10);
+		register_uninstall_hook( PPPP_PLUGIN_FILE, array( __CLASS__, 'uninstall_hook') );
+
 	}
 
 	public function save_option() {
@@ -24,13 +28,13 @@ Class PPPP_Option extends PPPP_Module {
 	public static function update_all_options() {
 		foreach (PPPP_Util::get_post_types() as $post_type) {
 			if(isset($_POST["posts_per_page_of_cpt_".$post_type->name])) {
-				update_option("posts_per_page_of_cpt_".$post_type->name, $_POST["posts_per_page_of_cpt_".$post_type->name]);
+				self::update_option("posts_per_page_of_cpt_".$post_type->name, $_POST["posts_per_page_of_cpt_".$post_type->name]);
 			}
 		}
 
 		foreach (PPPP_Util::get_taxonomies() as $taxonomy) {
 			if(isset($_POST["posts_per_page_of_tax_".$taxonomy->name])) {
-				update_option("posts_per_page_of_tax_".$taxonomy->name, $_POST["posts_per_page_of_tax_".$taxonomy->name]);
+				self::update_option("posts_per_page_of_tax_".$taxonomy->name, $_POST["posts_per_page_of_tax_".$taxonomy->name]);
 			}
 		}
 	}
@@ -44,4 +48,17 @@ Class PPPP_Option extends PPPP_Module {
 			delete_option("posts_per_page_of_tax_".$taxonomy->name);
 		}
 	}
+
+	public static function update_option( $key, $value ) {
+		$value = intval( $value );
+		if( $value < -1 ) {
+			$value = -1;
+		}
+		update_option( $key, $value );
+	}
+
+	public static function uninstall_hook() {
+		PPPP_Option::delete_all_options();
+	}
+
 }

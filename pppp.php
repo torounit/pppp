@@ -15,6 +15,8 @@ Domain Path: /language/
 */
 
 
+define( "PPPP_PLUGIN_FILE", __FILE__ );
+
 function pppp_class_loader( $class_name ) {
 	$dir = dirname(__FILE__);
 	$file_name = $dir . "/". str_replace("_", "/", $class_name).".php";
