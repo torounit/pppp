@@ -3,7 +3,7 @@ Contributors: Toro_Unit
 Tags: post type,taxonomy,cms,posts per page
 Requires at least: 3.5
 Tested up to: 3.7
-Stable tag: 0.7.2
+Stable tag: 0.8.0
 
 Posts per page for custom post types and taxonomies.
 
