@@ -76,4 +76,51 @@ Class Test_PPPP_Module_Core extends WP_UnitTestCase {
 		$this->go_to( get_term_link( $term_id, $taxonomy ) );
 	}
 
+
+	/**
+	 * @test
+	 */
+	public function test_category() {
+
+		update_option( 'posts_per_page_of_tax_category', 5 );
+
+		$term_id = $this->factory->term->create( array( 'taxonomy' => 'category' ) );
+		$ids = $this->factory->post->create_many( 10 );
+
+		foreach( $ids as $id ) {
+			wp_add_object_terms( $id, $term_id, 'category' );
+		}
+
+		add_action( 'wp', function () {
+			global /** @var WP_Query $wp_query */
+			$wp_query;
+			$this->assertEquals( 5, $wp_query->post_count );
+		} );
+
+		$this->go_to( get_category_link( $term_id ) );
+	}
+
+	/**
+	 * @test
+	 */
+	public function test_post_tag() {
+
+		update_option( 'posts_per_page_of_tax_post_tag', 5 );
+
+		$term_id = $this->factory->term->create( array( 'taxonomy' => 'post_tag' ) );
+		$ids = $this->factory->post->create_many( 10 );
+
+		foreach( $ids as $id ) {
+			wp_add_object_terms( $id, $term_id, 'post_tag' );
+		}
+
+		add_action( 'wp', function () {
+			global /** @var WP_Query $wp_query */
+			$wp_query;
+			$this->assertEquals( 5, $wp_query->post_count );
+		} );
+
+		$this->go_to( get_tag_link( $term_id ) );
+	}
+
 }

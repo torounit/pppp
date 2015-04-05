@@ -2,7 +2,7 @@
 Contributors: Toro_Unit
 Tags: post type,taxonomy,cms,posts per page
 Requires at least: 3.5
-Tested up to: 3.7
+Tested up to: 4.2
 Stable tag: 0.8.0
 
 Posts per page for custom post types and taxonomies.
@@ -46,6 +46,9 @@ That's it. You can access the posts per page setting by going to *Settings -> Re
 
 
 == Changelog ==
+
+= 0.8.0 =
+* Unit Test.
 
 = 0.7.2 =
 * Fix Not Working Category and Tag.
