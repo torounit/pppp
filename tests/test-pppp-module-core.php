@@ -57,16 +57,16 @@ Class Test_PPPP_Module_Core extends WP_UnitTestCase {
 		$term_id = $this->factory->term->create( array( 'taxonomy' => $taxonomy ) );
 		$ids = $this->factory->post->create_many( 10,
 			[
-				'tax_input' => [
-					$taxonomy => [ $term_id ]
-				]
+				'tax_input' => array(
+					$taxonomy => array( $term_id )
+				)
 			]
 		);
 
 		foreach( $ids as $id ) {
 			wp_add_object_terms( $id, $term_id, $taxonomy );
 		}
-		
+
 		add_action( 'wp', function () {
 			global /** @var WP_Query $wp_query */
 			$wp_query;
