@@ -1,9 +1,10 @@
 === Powerful Posts Per Page ===
 Contributors: Toro_Unit
+Donate link:       http://www.amazon.co.jp/registry/wishlist/COKSXS25MVQV
 Tags: post type,taxonomy,cms,posts per page
-Requires at least: 3.5
-Tested up to: 4.2
-Stable tag: 0.8.0
+Requires at least: 4.2
+Tested up to: 4.4
+Stable tag: 0.9.0
 
 Posts per page for custom post types and taxonomies.
 
