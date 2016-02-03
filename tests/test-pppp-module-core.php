@@ -56,11 +56,11 @@ Class Test_PPPP_Module_Core extends WP_UnitTestCase {
 		);
 		$term_id = $this->factory->term->create( array( 'taxonomy' => $taxonomy ) );
 		$ids = $this->factory->post->create_many( 10,
-			[
+			array(
 				'tax_input' => array(
 					$taxonomy => array( $term_id )
 				)
-			]
+			)
 		);
 
 		foreach( $ids as $id ) {
