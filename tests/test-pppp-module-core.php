@@ -32,10 +32,11 @@ Class Test_PPPP_Module_Core extends WP_UnitTestCase {
 
 		$this->factory->post->create_many( 10, array( 'post_type' => $post_type ) );
 
-		add_action( 'wp', function () {
+		$self = $this;
+		add_action( 'wp', function () use( $self ) {
 			global /** @var WP_Query $wp_query */
 			$wp_query;
-			$this->assertCount( 5, $wp_query->posts );
+			$self->assertCount( 5, $wp_query->posts );
 		} );
 
 		$this->go_to( get_post_type_archive_link( $post_type ) );
@@ -67,10 +68,11 @@ Class Test_PPPP_Module_Core extends WP_UnitTestCase {
 			wp_add_object_terms( $id, $term_id, $taxonomy );
 		}
 
-		add_action( 'wp', function () {
+		$self = $this;
+		add_action( 'wp', function () use( $self ) {
 			global /** @var WP_Query $wp_query */
 			$wp_query;
-			$this->assertEquals( 5, $wp_query->post_count );
+			$self->assertEquals( 5, $wp_query->post_count );
 		} );
 
 		$this->go_to( get_term_link( $term_id, $taxonomy ) );
@@ -91,10 +93,11 @@ Class Test_PPPP_Module_Core extends WP_UnitTestCase {
 			wp_add_object_terms( $id, $term_id, 'category' );
 		}
 
-		add_action( 'wp', function () {
+		$self = $this;
+		add_action( 'wp', function () use( $self ) {
 			global /** @var WP_Query $wp_query */
 			$wp_query;
-			$this->assertEquals( 5, $wp_query->post_count );
+			$self->assertEquals( 5, $wp_query->post_count );
 		} );
 
 		$this->go_to( get_category_link( $term_id ) );
@@ -114,10 +117,11 @@ Class Test_PPPP_Module_Core extends WP_UnitTestCase {
 			wp_add_object_terms( $id, $term_id, 'post_tag' );
 		}
 
-		add_action( 'wp', function () {
+		$self = $this;
+		add_action( 'wp', function () use( $self ) {
 			global /** @var WP_Query $wp_query */
 			$wp_query;
-			$this->assertEquals( 5, $wp_query->post_count );
+			$self->assertEquals( 5, $wp_query->post_count );
 		} );
 
 		$this->go_to( get_tag_link( $term_id ) );
