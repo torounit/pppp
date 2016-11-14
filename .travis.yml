@@ -6,9 +6,7 @@ notifications:
     on_failure: change
 php:
 - 5.3
-- 5.6
 - 7
-- hhvm
 matrix:
   include:
   - php: 5.3
@@ -24,8 +22,8 @@ env:
   matrix:
   - WP_VERSION=4.3.1 WP_MULTISITE=0
   - WP_VERSION=4.3.1 WP_MULTISITE=1
-  - WP_VERSION=4.4 WP_MULTISITE=0
-  - WP_VERSION=4.4 WP_MULTISITE=1
+  - WP_VERSION=4.6.1 WP_MULTISITE=0
+  - WP_VERSION=4.6.1 WP_MULTISITE=1
   - WP_VERSION=trunk WP_MULTISITE=0
   - WP_VERSION=trunk WP_MULTISITE=1
   global:
