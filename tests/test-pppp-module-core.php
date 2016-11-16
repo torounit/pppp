@@ -7,9 +7,7 @@ Class Test_PPPP_Module_Core extends WP_UnitTestCase {
 	public function setUp() {
 
 		parent::setUp();
-
 		create_initial_taxonomies();
-
 		update_option( 'posts_per_page', 10 );
 	}
 
