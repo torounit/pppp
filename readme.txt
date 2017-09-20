@@ -4,7 +4,7 @@ Donate link:       http://www.amazon.co.jp/registry/wishlist/COKSXS25MVQV
 Tags: post type,taxonomy,cms,posts per page
 Requires at least: 4.2
 Tested up to: 4.7
-Stable tag: 0.9.1
+Stable tag: 0.9.2
 
 Posts per page for custom post types and taxonomies.
 
@@ -47,6 +47,9 @@ That's it. You can access the posts per page setting by going to *Settings -> Re
 
 
 == Changelog ==
+
+= 0.9.2 =
+* Remove git from wp.org.
 
 = 0.9.1 =
 * Test for 4.7.
