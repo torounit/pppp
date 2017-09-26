@@ -1,10 +1,10 @@
 === Powerful Posts Per Page ===
 Contributors: Toro_Unit
-Donate link:       http://www.amazon.co.jp/registry/wishlist/COKSXS25MVQV
+Donate link:  https://www.amazon.co.jp/registry/wishlist/COKSXS25MVQV
 Tags: post type,taxonomy,cms,posts per page
 Requires at least: 4.2
-Tested up to: 4.7
-Stable tag: 0.9.2
+Tested up to: 4.8
+Stable tag: 1.0.0
 
 Posts per page for custom post types and taxonomies.
 
@@ -27,7 +27,7 @@ This plugin use `pre_get_posts`.
 Donation: Please send Amazon Gift to donate[at]torounit.com.
 
 = Translators =
-* Japanese(ja) - [Toro_Unit](http://www.torounit.com/)
+* Japanese(ja) - [Toro_Unit](https://www.torounit.com/)
 
 
 == Installation ==
@@ -47,6 +47,10 @@ That's it. You can access the posts per page setting by going to *Settings -> Re
 
 
 == Changelog ==
+
+= 1.0.0 =
+* Use Settings API.
+* PHPCS fix.
 
 = 0.9.2 =
 * Remove git from wp.org.

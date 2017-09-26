@@ -3,7 +3,7 @@
  * Plugin Name: Powerful Posts Per Page
  * Plugin URI: https://github.com/torounit/pppp
  * Description: Posts per page for custom post types and taxonomies.
- * Version: 0.9.2
+ * Version: 1.0.0
  * Author: Toro_Unit
  * Author URI: https://torounit.com
  * License: GPL2 or Later
@@ -11,7 +11,7 @@
  * Domain Path: /language/
  *
  * @package PPPP
- * @version 0.9.2
+ * @version 1.0.0
  */
 
 define( 'PPPP_PLUGIN_FILE', __FILE__ );
