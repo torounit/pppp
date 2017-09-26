@@ -6,23 +6,37 @@ notifications:
     on_failure: change
 php:
 - 7
+
+env:
+  matrix:
+    - PHP_VERSION=5.3 WP_VERSION=4.3.6 WP_MULTISITE=0
+    - PHP_VERSION=5.3 WP_VERSION=4.3.6 WP_MULTISITE=1
+    - PHP_VERSION=5.3 WP_VERSION=4.8 WP_MULTISITE=0
+    - PHP_VERSION=5.3 WP_VERSION=4.8 WP_MULTISITE=1
+    - PHP_VERSION=5.3 WP_VERSION=trunk WP_MULTISITE=0
+    - PHP_VERSION=5.3 WP_VERSION=trunk WP_MULTISITE=1
+    - PHP_VERSION=7.1 WP_VERSION=4.3.6 WP_MULTISITE=0
+    - PHP_VERSION=7.1 WP_VERSION=4.3.6 WP_MULTISITE=1
+    - PHP_VERSION=7.1 WP_VERSION=4.8 WP_MULTISITE=0
+    - PHP_VERSION=7.1 WP_VERSION=4.8 WP_MULTISITE=1
+    - PHP_VERSION=7.1 WP_VERSION=trunk WP_MULTISITE=0
+    - PHP_VERSION=7.1 WP_VERSION=trunk WP_MULTISITE=1
+  global:
+  - SVN_REPO: https://plugins.svn.wordpress.org/pppp/
+  - secure: e+UzGpMylOcnoclPz5NkJm0yynmP/PFYsVOTh9GiU2VaWJKJECRsbNhpIMaQBoRqwft8ylZ12E7kos/LNLtMdd6L/Se8u+zO+xE6wbX562Bh41xqXHw5mK6juAMzVs9U/Qo6ijIsxAMpf1dOGQMDEeKG53B4X7JpI9t1cuT21cE=
+
 matrix:
   include:
   - php: 7
     env: WP_VERSION=latest WP_MULTISITE=0 WP_PULUGIN_DEPLOY=1
+
 before_script:
-- bash bin/install-wp-tests.sh wordpress_test root '' localhost $WP_VERSION
-script: phpunit
-after_success: curl -L https://raw.githubusercontent.com/miya0001/travis2wpplugin/master/deploy.sh
-  | bash
-env:
-  matrix:
-  - WP_VERSION=4.3.1 WP_MULTISITE=0
-  - WP_VERSION=4.3.1 WP_MULTISITE=1
-  - WP_VERSION=4.8.2 WP_MULTISITE=0
-  - WP_VERSION=4.8.2 WP_MULTISITE=1
-  - WP_VERSION=trunk WP_MULTISITE=0
-  - WP_VERSION=trunk WP_MULTISITE=1
-  global:
-  - SVN_REPO: https://plugins.svn.wordpress.org/pppp/
-  - secure: e+UzGpMylOcnoclPz5NkJm0yynmP/PFYsVOTh9GiU2VaWJKJECRsbNhpIMaQBoRqwft8ylZ12E7kos/LNLtMdd6L/Se8u+zO+xE6wbX562Bh41xqXHw5mK6juAMzVs9U/Qo6ijIsxAMpf1dOGQMDEeKG53B4X7JpI9t1cuT21cE=
+  - curl -L https://raw.githubusercontent.com/miya0001/wpenv/master/run.sh | bash -s $PHP_VERSION $WP_VERSION
+  - docker exec -it -u $(id -u) wpenv bash -c "/home/ubuntu/.phpenv/shims/composer install"
+
+script:
+  - docker exec -it -u $(id -u) wpenv bash -c "/home/ubuntu/.phpenv/shims/composer phpcs"
+  - docker exec -it -u $(id -u) wpenv bash -c "/home/ubuntu/.phpenv/shims/phpunit"
+
+after_success: curl -L https://raw.githubusercontent.com/miya0001/travis2wpplugin/master/deploy.sh | bash
+
