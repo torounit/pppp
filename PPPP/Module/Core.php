@@ -1,21 +1,29 @@
 <?php
-
 /**
- *
- * Core Action class.
+ * Core functions.
  *
  * @package PPPP
  * @since 0.7
+ */
+
+/**
+ * Core Action class.
  *
+ * @since 0.7
  */
 class PPPP_Module_Core extends PPPP_Module {
 
+	/**
+	 * Hooks.
+	 */
 	public function add_hook() {
 		add_action( 'pre_get_posts', array( $this, 'pre_get_posts' ) );
 	}
 
 	/**
-	 * @param WP_Query $query
+	 * Set posts per page.
+	 *
+	 * @param WP_Query $query wp_query.
 	 */
 	public function pre_get_posts( WP_Query $query ) {
 		if ( $query->is_main_query() and ! is_admin() ) {

@@ -23,9 +23,6 @@
         ],
         "phpcs": [
             "@php vendor/bin/phpcs -p -s -v -n . --standard=./codesniffer.ruleset.xml --extensions=php"
-        ],
-        "phpunit": [
-            "/home/ubuntu/.phpenv/shims/phpunit"
         ]
     }
 }

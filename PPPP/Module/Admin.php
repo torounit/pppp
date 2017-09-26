@@ -1,15 +1,20 @@
 <?php
-
 /**
- *
- * Admin Page Actions.
+ * Admin.
  *
  * @package PPPP
- * @since 0.7
+ */
+
+/**
+ * Admin Page Actions.
  *
+ * @since 0.7
  */
 class PPPP_Module_Admin extends PPPP_Module {
 
+	/**
+	 * Add actions.
+	 */
 	public function add_hook() {
 		add_action( 'admin_init', array( $this, 'add_settings_section' ), 11 );
 		add_action( 'admin_init', array( $this, 'add_settings_fields' ), 12 );
@@ -17,42 +22,54 @@ class PPPP_Module_Admin extends PPPP_Module {
 		add_action( 'admin_footer', array( $this, 'pointer_js' ) );
 	}
 
+	/**
+	 * Register form section.
+	 */
 	public function add_settings_section() {
 		add_settings_section(
 			'pppp',
 			__( 'Powerful Posts Per Page', 'pppp' ),
-			array( $this, 'section_content', ),
+			array( $this, 'section_description' ),
 			'reading'
 		);
 	}
 
-	public function section_content() {
+	/**
+	 * Section title.
+	 */
+	public function section_description() {
 		?><p><?php esc_html_e( 'Set posts per page for each post type/taxonomy archives.', 'pppp' ); ?></p>
 		<?php
 	}
 
+	/**
+	 * Create input fields.
+	 */
 	public function add_settings_fields() {
 		foreach ( PPPP_Util::get_post_types() as $post_type ) {
-			$this->add_settings_field( 'posts_per_page_of_cpt_' . $post_type->name, $post_type, 'post_type' );
+			$this->add_settings_field( 'posts_per_page_of_cpt_' . $post_type->name, $post_type );
 		}
 		foreach ( PPPP_Util::get_taxonomies() as $taxonomy ) {
-			$this->add_settings_field( 'posts_per_page_of_tax_' . $taxonomy->name, $taxonomy, 'taxonomy' );
+			$this->add_settings_field( 'posts_per_page_of_tax_' . $taxonomy->name, $taxonomy );
 		}
 	}
 
-	private function add_settings_field( $id, $obj, $type ) {
-
+	/**
+	 * Register field
+	 *
+	 * @param string                   $id field id.
+	 * @param WP_Post_Type|WP_Taxonomy $obj post type or taxonomy.
+	 */
+	private function add_settings_field( $id, $obj ) {
 		add_settings_field(
 			$id,
 			/* translators: %s: Name of post type or taxonomy label */
 			sprintf( __( '%s archive show at most', 'pppp' ), $obj->label ),
-			array( $this, 'create_field', ),
+			array( $this, 'create_field' ),
 			'reading',
 			'pppp',
 			array(
 				'label_for' => $id,
-				'obj' => $obj,
-				'type' => $type
 			)
 		);
 
@@ -63,9 +80,13 @@ class PPPP_Module_Admin extends PPPP_Module {
 		);
 	}
 
-	public function create_field( $arg ) {
-		$obj   = $arg['obj'];
-		$field = $arg['label_for'];
+	/**
+	 * Field markup.
+	 *
+	 * @param array $args add_settings_field callback param.
+	 */
+	public function create_field( $args ) {
+		$field = $args['label_for'];
 		$value = get_option( $field );
 		if ( false === $value ) {
 			$value = get_option( 'posts_per_page' );
@@ -75,6 +96,13 @@ class PPPP_Module_Admin extends PPPP_Module {
 		<?php
 	}
 
+	/**
+	 * Sanitize posts per page.
+	 *
+	 * @param int|string $maybeint Data you wish to have converted to a integer.
+	 *
+	 * @return int
+	 */
 	public function sanitize( $maybeint ) {
 		$value = intval( $maybeint );
 		if ( $value < - 1 ) {
@@ -85,10 +113,9 @@ class PPPP_Module_Admin extends PPPP_Module {
 
 
 	/**
+	 * Enqueue CSS and JS
 	 *
-	 * enqueue CSS and JS
 	 * @since 0.7.2
-	 *
 	 */
 	public function enqueue_css_js() {
 		wp_enqueue_style( 'wp-pointer' );
@@ -97,8 +124,8 @@ class PPPP_Module_Admin extends PPPP_Module {
 
 
 	/**
+	 * Add js for pointer
 	 *
-	 * add js for pointer
 	 * @since 0.7.2
 	 */
 	public function pointer_js() {
