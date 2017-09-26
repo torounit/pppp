@@ -11,6 +11,13 @@ Class Test_PPPP_Module_Core extends WP_UnitTestCase {
 		update_option( 'posts_per_page', 10 );
 	}
 
+	/**
+	 * @test
+	 */
+	public function test_fail() {
+		$this->assertTrue( false );
+	}
+
 
 	/**
 	 * @test
