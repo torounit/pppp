@@ -21,6 +21,7 @@ matrix:
     - env: PHP_VERSION=7.1 WP_VERSION=trunk
 
 before_script:
+  - composer install
   - curl -L https://raw.githubusercontent.com/torounit/wpenv/issue/support-nightly/run.sh | bash -s $PHP_VERSION $WP_VERSION
   - docker exec -it -u root wpenv ln -s /home/ubuntu/.phpenv/shims/php /usr/local/bin/
   - docker exec -it -u root wpenv ln -s /home/ubuntu/.phpenv/shims/composer /usr/local/bin/
@@ -35,7 +36,6 @@ before_script:
     fi
   - |
   - docker exec -it -u root wpenv ln -s /home/ubuntu/.phpenv/shims/phpunit /usr/local/bin/
-  - docker exec -it -u $(id -u) wpenv composer install
 
 script:
   - docker exec -it -u $(id -u) wpenv composer phpcs
