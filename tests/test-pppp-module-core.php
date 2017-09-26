@@ -14,14 +14,6 @@ Class Test_PPPP_Module_Core extends WP_UnitTestCase {
 	/**
 	 * @test
 	 */
-	public function test_fail() {
-		$this->assertTrue( false );
-	}
-
-
-	/**
-	 * @test
-	 */
 	public function test_post_type() {
 		/** @var WP_Query $wp_query */
 		global $wp_query;
