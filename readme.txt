@@ -12,6 +12,9 @@ Posts per page for custom post types and taxonomies.
 
 Simple Customization posts per page for your sites.
 
+You can change posts per page by taxonomy or category or tag or custom post type.
+
+
 = Available Setting =
 
 * Custom Post Type

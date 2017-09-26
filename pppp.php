@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Powerful Posts Per Page
  * Plugin URI: https://github.com/torounit/pppp
- * Description: Posts per page for custom post types and taxonomies.
+ * Description: You can change posts per page by taxonomy or category or tag or custom post type.
  * Version: 1.0.0
  * Author: Toro_Unit
  * Author URI: https://torounit.com
