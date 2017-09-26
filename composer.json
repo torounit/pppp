@@ -1,28 +1,23 @@
 {
-    "name": "torounit/pppp",
-    "description": "Posts per page for custom post types and taxonomies.",
-    "type": "wordpress-plugin",
-    "license": "GPL-2.0+",
-    "authors": [
-        {
-            "name": "Hiroshi Urabe",
-            "email": "mail@torounit.com"
-        }
-    ],
-    "require": {},
-    "require-dev": {
-        "squizlabs/php_codesniffer": "^2.7",
-        "wp-coding-standards/wpcs": "^0.10"
-    },
-    "scripts": {
-        "post-install-cmd": [
-            "@php vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs/"
-        ],
-        "post-update-cmd": [
-            "@php vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs/"
-        ],
-        "phpcs": [
-            "@php vendor/bin/phpcs -p -s -v -n . --standard=./codesniffer.ruleset.xml --extensions=php"
-        ]
+  "name": "torounit/pppp",
+  "description": "Posts per page for custom post types and taxonomies.",
+  "type": "wordpress-plugin",
+  "license": "GPL-2.0+",
+  "authors": [
+    {
+      "name": "Hiroshi Urabe",
+      "email": "mail@torounit.com"
     }
+  ],
+  "require": {},
+  "require-dev": {
+    "squizlabs/php_codesniffer": "^2.7",
+    "wp-coding-standards/wpcs": "^0.10"
+  },
+  "scripts": {
+    "phpcs": [
+      "@php vendor/bin/phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs/",
+      "@php vendor/bin/phpcs -p -s -v -n . --standard=./codesniffer.ruleset.xml --extensions=php"
+    ]
+  }
 }
