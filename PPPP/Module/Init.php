@@ -9,14 +9,14 @@
  *
  */
 
-Class PPPP_Module_Init extends PPPP_Module {
+class PPPP_Module_Init extends PPPP_Module {
 
 	public function add_hook() {
-		add_action( 'init', array( $this,'load_textdomain') );
+		add_action( 'init', array( $this, 'load_textdomain' ) );
 	}
 
 	public function load_textdomain() {
-		load_plugin_textdomain( 'pppp', false, "pppp/language" );
+		load_plugin_textdomain( 'pppp', false, 'pppp/language' );
 
 	}
 }

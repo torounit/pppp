@@ -9,7 +9,7 @@
  * @since 0.7
  *
  */
-Class PPPP_Util {
+class PPPP_Util {
 
 	private function __construct() {
 	}
@@ -19,13 +19,13 @@ Class PPPP_Util {
 
 	public static function get_post_types() {
 		if ( ! self::$post_types ) {
-			self::$post_types = get_post_types(
-				array(
-					'_builtin'           => false,
-					'publicly_queryable' => true,
-					'show_ui'            => true,
-					"has_archive"        => true
-				), "objects" );
+			$param = array(
+				'_builtin'           => false,
+				'publicly_queryable' => true,
+				'show_ui'            => true,
+				'has_archive'        => true,
+			);
+			self::$post_types = get_post_types( $param, 'objects' );
 		}
 
 		return self::$post_types;
@@ -33,7 +33,10 @@ Class PPPP_Util {
 
 	public static function get_taxonomies() {
 		if ( ! self::$taxonomies ) {
-			self::$taxonomies = get_taxonomies( array( "public" => true ), "objects" );
+			$param = array(
+				'public' => true,
+			);
+			self::$taxonomies = get_taxonomies( $param, 'objects' );
 		}
 
 		return self::$taxonomies;

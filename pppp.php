@@ -16,17 +16,17 @@ Domain Path: /language/
 */
 
 
-define( "PPPP_PLUGIN_FILE", __FILE__ );
+define( 'PPPP_PLUGIN_FILE', __FILE__ );
 
 function pppp_class_loader( $class_name ) {
 	$dir       = dirname( __FILE__ );
-	$file_name = $dir . "/" . str_replace( "_", "/", $class_name ) . ".php";
+	$file_name = $dir . '/' . str_replace( '_', '/', $class_name ) . '.php';
 	if ( is_readable( $file_name ) ) {
 		include $file_name;
 	}
 }
 
-spl_autoload_register( "pppp_class_loader" );
+spl_autoload_register( 'pppp_class_loader' );
 
 
 /**
@@ -37,7 +37,7 @@ spl_autoload_register( "pppp_class_loader" );
  * @since 0.6
  *
  */
-Class PPPP {
+class PPPP {
 
 	private $init, $option, $core, $admin;
 
@@ -48,7 +48,7 @@ Class PPPP {
 		$this->core   = new PPPP_Module_Core();
 		$this->admin  = new PPPP_Module_Admin();
 
-		do_action( "PPPP_init" );
+		do_action( 'PPPP_init' );
 	}
 
 
