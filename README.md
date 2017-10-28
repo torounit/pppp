@@ -1,4 +1,4 @@
-# Powerful Posts Per Page
+# Powerful Posts Per Page (PPPP)
 
 [![Latest Stable Version](https://poser.pugx.org/torounit/pppp/v/stable)](https://packagist.org/packages/torounit/pppp)
 [![License](https://poser.pugx.org/torounit/pppp/license)](https://packagist.org/packages/torounit/pppp)

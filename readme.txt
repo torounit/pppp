@@ -1,10 +1,10 @@
-=== Powerful Posts Per Page ===
+=== Powerful Posts Per Page (PPPP) ===
 Contributors: Toro_Unit
 Donate link:  https://www.amazon.co.jp/registry/wishlist/COKSXS25MVQV
 Tags: post type,taxonomy,cms,posts per page
 Requires at least: 4.2
-Tested up to: 4.8
-Stable tag: 1.0.0
+Tested up to: 4.9
+Stable tag: 1.0.1
 
 Posts per page for custom post types and taxonomies.
 
@@ -50,6 +50,9 @@ That's it. You can access the posts per page setting by going to *Settings -> Re
 
 
 == Changelog ==
+
+= 1.0.1 =
+* Test WordPress 4.9
 
 = 1.0.0 =
 * Use Settings API.
