@@ -52,6 +52,6 @@ class PPPP_Module_Core extends PPPP_Module {
 					return;
 				}
 			}
-}
+		}
 	}
 }

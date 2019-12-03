@@ -2,8 +2,8 @@
 Contributors: Toro_Unit
 Donate link:  https://www.amazon.co.jp/registry/wishlist/COKSXS25MVQV
 Tags: post type,taxonomy,cms,posts per page
-Requires at least: 4.2
-Tested up to: 4.9
+Requires at least: 4.3
+Tested up to: 5.3
 Stable tag: 1.0.1
 
 Posts per page for custom post types and taxonomies.

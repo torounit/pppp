@@ -1,0 +1,30 @@
+{
+  "name": "pppp",
+  "version": "1.0.1",
+  "description": "Posts per page for custom post types and taxonomies.",
+  "private": true,
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/torounit/pppp.git"
+  },
+  "author": "",
+  "license": "GPL-2.0+",
+  "bugs": {
+    "url": "https://github.com/torounit/pppp/issues"
+  },
+  "homepage": "https://github.com/torounit/pppp#readme",
+  "release-it": {
+    "hooks": {
+      "before:bump": "bash ./bin/create-release.sh ${version}"
+    },
+    "github": {
+      "release": true
+    },
+    "npm": {
+      "publish": false
+    }
+  }
+}

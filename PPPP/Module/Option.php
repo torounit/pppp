@@ -17,7 +17,6 @@ class PPPP_Module_Option extends PPPP_Module {
 	 */
 	public function add_hook() {
 		register_uninstall_hook( PPPP_PLUGIN_FILE, array( __CLASS__, 'uninstall_hook' ) );
-
 	}
 
 	/**

@@ -72,7 +72,6 @@ class PPPP {
 	 * PPPP constructor.
 	 */
 	public function __construct() {
-
 		$this->init   = new PPPP_Module_Init();
 		$this->option = new PPPP_Module_Option();
 		$this->core   = new PPPP_Module_Core();
