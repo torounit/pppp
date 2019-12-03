@@ -1,6 +1,6 @@
 {
   "name": "pppp",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Posts per page for custom post types and taxonomies.",
   "private": true,
   "directories": {

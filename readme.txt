@@ -5,7 +5,7 @@ Tags: post type,taxonomy,cms,posts per page
 Requires at least: 4.3
 Tested up to: 5.3
 Requires PHP: 5.3
-Stable tag: 1.0.1
+Stable tag: 1.1.0
 License: GPLv2 or Later
 
 Posts per page for custom post types and taxonomies.
