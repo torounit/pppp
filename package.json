@@ -18,7 +18,9 @@
   "homepage": "https://github.com/torounit/pppp#readme",
   "release-it": {
     "hooks": {
-      "before:bump": "bash ./bin/create-release.sh ${version}"
+      "before:bump": "bash ./bin/create-release.sh pppp ${version}",
+      "after:bump": "bash ./bin/create-zip.sh pppp",
+      "after:release": "bash ./bin/cleanup.sh pppp"
     },
     "github": {
       "release": true

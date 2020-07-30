@@ -10,6 +10,8 @@ License: GPLv2 or Later
 
 Posts per page for custom post types and taxonomies.
 
+
+
 == Description ==
 
 Simple Customization posts per page for your sites.
@@ -44,11 +46,9 @@ Donation: Please send Amazon Gift to donate[at]torounit.com.
 
 That's it. You can access the posts per page setting by going to *Settings -> Reading*.
 
-
 == Screenshots ==
 
 * screenshot-1.png
-
 
 
 == Changelog ==
@@ -85,3 +85,8 @@ That's it. You can access the posts per page setting by going to *Settings -> Re
 
 = 0.6 =
 * First release.
+
+
+== License ==
+
+GPL v2 or Later.

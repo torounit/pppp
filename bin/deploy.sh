@@ -17,6 +17,7 @@ if [[ ! $SVN_REPO ]]; then
 	exit
 fi
 
+
 # Untrailing slash of SVN_REPO path
 SVN_REPO=`echo $SVN_REPO | sed -e "s/\/$//"`
 # Git repository
